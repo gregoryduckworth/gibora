@@ -25,7 +25,7 @@ class SiteSettingsFormRequest extends Request
     {
         return [
             'full_name' => 'required|max:16',
-            'short_name' => 'required|max:6',
+            'short_name' => 'required|max:5',
             'registration' => 'required|in:open,closed',
             'colour_scheme' => 'required',
         ];
