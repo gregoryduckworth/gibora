@@ -26,6 +26,9 @@ class UsersTableSeeder extends Seeder
             ]);
 
             $role_user->attachRole($role);
+            $this->command->line('User with the following credentials has been created:');
+            $this->command->info('Login: ' . $role_user->email);
+            $this->command->info('Password: password');
         }
 
         // Create new users for the system

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  
+  app:
+    image: hitalos/laravel:latest
+    container_name: app
+    env_file: .env
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www
+    environment:
+      DB_HOST: db
+      DB_DATABASE: database
+      DB_USERNAME: user
+      DB_PASSWORD: password
+
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
