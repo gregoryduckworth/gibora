@@ -19,6 +19,13 @@ class CreateSiteSettingsTable extends Migration
             $table->string('value');
             $table->timestamps();
         });
+
+        // Force some basic content into the database
+        Artisan::call('db:seed', [
+            '--class' => 'SiteSettingsTableSeeder',
+            '--force' => true]
+        );
+
     }
 
     /**
