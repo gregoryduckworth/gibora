@@ -1,0 +1,32 @@
+language: php
+
+php:
+  - 7.3
+
+services:
+  - mysql
+
+addons:
+  chrome: stable
+
+env:
+  - DB_USERNAME=root DB_PASSWORD= DB_DATABASE=homestead
+
+before_install:
+  - cp .env.travis .env
+  - mysql -e 'CREATE DATABASE homestead;'
+
+install:
+  - cp .env.travis .env
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - travis_retry npm install
+  - npm run dev
+  - php artisan key:generate
+  - php artisan migrate
+
+before_script:
+  - php artisan dusk:chrome-driver 74
+  - php artisan serve &
+
+script:
+  - php artisan dusk

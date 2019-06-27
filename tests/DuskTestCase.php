@@ -32,22 +32,13 @@ abstract class DuskTestCase extends BaseTestCase
         $options = (new ChromeOptions)->addArguments([
             '--disable-gpu',
             '--headless',
-            '--no-sandbox',
             '--window-size=1920,1080',
-            '--ignore-ssl-errors',
-            '--whitelisted-ips=""',
         ]);
 
-        switch (env('DUSK_DRIVER')) {
-            case 'docker':
-                return RemoteWebDriver::create(
-                    'http://selenium:4444/wd/hub', DesiredCapabilities::chrome()
-                );
-            default: // local
-                return RemoteWebDriver::create(
-                    'http://localhost:9515', DesiredCapabilities::chrome()
-                );
-        }
-
+        return RemoteWebDriver::create(
+            'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
+                ChromeOptions::CAPABILITY, $options
+            )
+        );
     }
 }

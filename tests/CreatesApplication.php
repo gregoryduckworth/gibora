@@ -2,21 +2,17 @@
 
 namespace Tests;
 
-use Illuminate\Contracts\Console\Kernel;
+use App\Console\Kernel;
 
 trait CreatesApplication
 {
-    /**
-     * Creates the application.
+    /** * Creates the application.
      *
      * @return \Illuminate\Foundation\Application
-     */
+     * */
     public function createApplication()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make(Kernel::class)->bootstrap();
-
-        return $app;
+        $app = require __DIR__ . '/../bootstrap/app.php';
+        $app->make(Kernel::class)->bootstrap();return $app;
     }
 }

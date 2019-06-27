@@ -29,4 +29,4 @@ services:
     depends_on:
       - app
     links:
-      - app:localhost
+      - app:app.test
