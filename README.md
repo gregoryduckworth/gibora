@@ -1,4 +1,4 @@
-# Laravel-Admin https://travis-ci.org/gregoryduckworth/laravel-admin.svg?branch=master
+# Laravel-Admin [![Build Status](https://travis-ci.org/gregoryduckworth/laravel-admin.svg?branch=master)](https://travis-ci.org/gregoryduckworth/laravel-admin)
 
 A site to allow the management of users and roles
 
