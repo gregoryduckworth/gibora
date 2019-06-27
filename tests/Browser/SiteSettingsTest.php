@@ -12,7 +12,7 @@ class SiteSettingsTest extends DuskTestCase
      *
      * @return void
      */
-    public function testSiteSettings()
+    public function testBasicExample()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')

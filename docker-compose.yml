@@ -27,6 +27,6 @@ services:
   selenium:
     image: selenium/standalone-chrome
     depends_on:
-    - app
+      - app
     links:
-    - app:app.test
+      - app:app.test
