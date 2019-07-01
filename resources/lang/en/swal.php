@@ -9,6 +9,7 @@ return [
     'text_delete' => 'All the details for the :type will be deleted.',
     'success_delete' => 'Deleted!',
     'confirm_delete' => 'Yes, delete it!',
+    'not_deleted' => ':type, not deleted!',
 
     // Restore
     'text_restore' => 'All the details for the :type will be restored.',
