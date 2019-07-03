@@ -218,44 +218,4 @@ abstract class Repository implements RepositoryInterface
     {
         return $this->model->orderBy($column, $sorting)->get();
     }
-
-    /**
-     * Fetch the nested structure from the database
-     *
-     * @return mixed
-     */
-    public function nest()
-    {
-        $nest = $this->model->orderBy('parent_id')->where('parent_id', null)->get();
-        $nest = $this->addRelation($nest);
-        return $nest;
-    }
-
-    /**
-     * Create the relation between the parent and the child
-     *
-     * @param $nest
-     */
-    public function addRelation($nest)
-    {
-        $nest->map(function ($item, $key) {
-            $sub = $this->selectChild($item->id);
-            return $item = array_add($item, 'children', $sub);
-        });
-        return $nest;
-    }
-
-    /**
-     * Select the children from the database
-     * and recursively add the iteration
-     *
-     * @param  $id
-     * @return mixed
-     */
-    public function selectChild($id)
-    {
-        $nest = $this->model->where('parent_id', $id)->get();
-        $nest = $this->addRelation($nest);
-        return $nest;
-    }
 }

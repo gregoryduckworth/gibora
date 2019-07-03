@@ -24,7 +24,7 @@ class RoleFormRequest extends Request
     public function rules()
     {
         return [
-            'display_name' => 'required|max:30',
+            'display_name' => 'required|max:30|unique:roles,display_name,' . $this->get('id'),
             'description' => 'required|max:255',
         ];
     }

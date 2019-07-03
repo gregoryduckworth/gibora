@@ -146,6 +146,7 @@ class UserController extends Controller
     {
         // We need to create a password for the new user
         $user = $this->user->find($request->id);
+
         // Detach all existing roles to ensure that we attach the
         // new ones correctly
         $user->detachRoles($this->role->all());

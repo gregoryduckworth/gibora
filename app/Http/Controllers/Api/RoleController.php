@@ -99,20 +99,19 @@ class RoleController extends Controller
      */
     public function update(RoleFormRequest $request)
     {
-        // Check that the role name does not already exist
-        if ($this->role->findBy('display_name', $request->display_name)) {
-            return response()->json(['msg' => trans('json.role_with_name_already_exists'), 'status' => 'error']);
-        }
         // Find the role in order to apply the update
         $role = $this->role->find($request->id);
+
         // Detach all existing permissions to ensure that we attach the
         // new ones correctly
         $role->detachPermissions($this->permission->all());
         if (!empty($request['permissions'])) {
             $role->attachPermissions($request['permissions']);
-        } elseif ($role->update($request->all())) {
+        }
+        if ($this->role->update($request->except(['_token']), $request->id)) {
             return response()->json(['msg' => trans('json.data_updated', ['type' => trans('roles.role')]), 'status' => 'success']);
         }
+        // Return an error if something went wrong
         return response()->json(['msg' => trans('json.something_went_wrong'), 'status' => 'error']);
     }
 }
