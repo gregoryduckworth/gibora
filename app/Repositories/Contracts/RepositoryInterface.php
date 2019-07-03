@@ -78,20 +78,4 @@ interface RepositoryInterface
      * @return mixed
      */
     public function where($attribute, $operator, $value);
-
-    /**
-     * @return mixed
-     */
-    public function nest();
-
-    /**
-     * @param $nest
-     */
-    public function addRelation($nest);
-
-    /**
-     * @param  $id
-     * @return mixed
-     */
-    public function selectChild($id);
 }

@@ -12,7 +12,7 @@
             swal({
                 title: data.status.charAt(0).toUpperCase() + data.status.slice(1),
                 text: data.msg,
-                type: data.status
+                icon: data.status
             }).then(() => {
                 // redirect to the new page
                 window.location.href = form.attr('redirect');
@@ -27,7 +27,7 @@
             swal({
                 title: "{!! trans('swal.text_oops') !!}",
                 text: errorsHTML,
-                type: "error",
+                icon: "error",
                 html: true
             });
         });
