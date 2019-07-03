@@ -10,7 +10,6 @@ class Helper
     {
         // Delete the previous file
         File::delete(public_path() . $currentImage);
-        \Log::debug(public_path() . $currentImage);
         // Create a new file name for the image to avoid any collisions
         $fileName = str_random(20) . '.' . $image->extension();
         // Depending on the model that is passed to the function we need
