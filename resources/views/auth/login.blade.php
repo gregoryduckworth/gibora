@@ -15,40 +15,41 @@
 
             <div class="panel-body">
                 {!! Form::open(['route' => 'login.post', 'class' => 'form-horizontal']) !!}
-                    <div class="form-group has-feedback">
-                        {!! Form::label('email', trans('message.email'), ['class' => 'col-md-2 control-label']) !!}
-                        <div class="col-md-10">
-                            {!! Form::text('email', null, ['class' => 'form-control']) !!}
-                            <i class="fa fa-envelope form-control-feedback"></i>
-                        </div>
+                <div class="form-group has-feedback">
+                    {!! Form::label('email', trans('message.email'), ['class' => 'col-md-2 control-label']) !!}
+                    <div class="col-md-10">
+                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                        <i class="fa fa-envelope form-control-feedback"></i>
                     </div>
+                </div>
 
-                    <div class="form-group has-feedback">
-                        {!! Form::label('password', trans('message.password'), ['class' => 'col-md-2 control-label']) !!}
-                        <div class="col-md-10">
-                            {!! Form::password('password', ['class' => 'form-control']) !!}
-                            <i class="fa fa-lock form-control-feedback"></i>
+                <div class="form-group has-feedback">
+                    {!! Form::label('password', trans('message.password'), ['class' => 'col-md-2 control-label']) !!}
+                    <div class="col-md-10">
+                        {!! Form::password('password', ['class' => 'form-control']) !!}
+                        <i class="fa fa-lock form-control-feedback"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            <label>
+                                <input id="remember" type="checkbox">{!! trans('message.remember') !!}
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">{!! trans('message.remember') !!}
-                                </label>
-                            </div>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        {!! Form::submit('Sign in', ['id' => 'sign_in', 'class' => 'btn btn-success btn-sm']) !!}
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            {!! Form::submit('Sign in', ['class' => 'btn btn-success btn-sm']) !!}
-                        </div>
-                    </div>
+                </div>
                 {!! Form::close() !!}
             </div>
             <div class="panel-footer">
-                <a href="{!! route('register') !!}">{!! trans('message.registermember') !!}</a>
-                <a href="{!! route('password.reset') !!}" class="pull-right">{!! trans('message.forgotpassword') !!}</a>
+                <a id="not_registered" href="{!! route('register') !!}">{!! trans('message.registermember') !!}</a>
+                <a id="password_reset" href="{!! route('password.reset') !!}" class="pull-right">{!!
+                    trans('message.forgotpassword') !!}</a>
             </div>
         </div>
     </div>
