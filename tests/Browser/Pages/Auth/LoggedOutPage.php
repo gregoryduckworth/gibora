@@ -1,10 +1,11 @@
 <?php
 
-namespace Tests\Browser\Pages;
+namespace Tests\Browser\Pages\Auth;
 
 use Laravel\Dusk\Browser;
+use Tests\Browser\Pages\Page;
 
-class HomePage extends Page
+class LoggedOutPage extends Page
 {
     /**
      * Get the URL for the page.
@@ -24,7 +25,7 @@ class HomePage extends Page
      */
     public function assert(Browser $browser)
     {
-        //
+        $browser->assertPathIs($this->url());
     }
 
     /**
@@ -35,7 +36,8 @@ class HomePage extends Page
     public function elements()
     {
         return [
-            '@element' => '#selector',
+            '@login' => '#login',
+            '@register' => '#register',
         ];
     }
 }
